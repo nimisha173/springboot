@@ -19,16 +19,16 @@ public class Usercontrolller {
     @Autowired
     private Userservice userservice;
     @PostMapping("/add")
-    public ResponseEntity<User> adduser(@RequestBody @Valid User user){
-       return userservice.PostUser(user);
+    public ResponseEntity<User> adduser(@RequestBody @Valid UserRequest request){
+       return new ResponseEntity<>(userservice.PostUser(request),HttpStatus.CREATED);
     }
     @GetMapping
-    public List<User> getuser() {
+    public ResponseEntity<List<User>> getuser() {
         return ResponseEntity.ok(userservice.getuser());
     }
     @GetMapping("/{id}")
     public User getid(@PathVariable Integer id)throws UserNotFoundException{
-        return userservice.GetById(id);
+        return userservice.GetById(id).orElse(null);
     }
 
 

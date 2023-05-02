@@ -10,7 +10,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-@AllArgsConstructor(staticName = "build")
+@AllArgsConstructor
 @NoArgsConstructor
 public class User {
     @Id

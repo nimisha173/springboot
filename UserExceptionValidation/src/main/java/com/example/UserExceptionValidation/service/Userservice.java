@@ -1,6 +1,7 @@
 package com.example.UserExceptionValidation.service;
 
 import com.example.UserExceptionValidation.Entity.User;
+import com.example.UserExceptionValidation.Exception.NameFoundException;
 import com.example.UserExceptionValidation.Exception.UserNotFoundException;
 import com.example.UserExceptionValidation.dto.UserRequest;
 
@@ -11,18 +12,15 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class Userservice {
+public interface Userservice {
 
-    public User PostUser(User user) {
-        return null;
-    }
 
-    public List<User> getuser() {
-        return null;
-    }
+    User PostUser(UserRequest userRequest) throws NameFoundException;
 
-    public Optional<User> GetById(Integer id) throws UserNotFoundException {
-        return null;
-    }
+//    public User PostUser(User user);
+
+    public List<User> getuser();
+
+    public Optional<User> GetById(Integer id) throws UserNotFoundException;
 
 }

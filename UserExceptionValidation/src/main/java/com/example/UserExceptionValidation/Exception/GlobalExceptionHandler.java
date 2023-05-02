@@ -18,19 +18,24 @@ import java.util.Map;
 @ControllerAdvice
 @ResponseStatus
 public class GlobalExceptionHandler  extends ResponseEntityExceptionHandler {
-    @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public ResponseEntity<ErrorMessage> handleStudentNotFoundException(MethodArgumentNotValidException ex,
-                                                                       WebRequest request) {
+//    @ExceptionHandler(value = MethodArgumentNotValidException.class)
+//    public ResponseEntity<ErrorMessage> handleStudentNotFoundException(MethodArgumentNotValidException ex,
+//                                                                       WebRequest request) {
+//        ErrorMessage errorMessage = new ErrorMessage(HttpStatus.NOT_FOUND, ex.getMessage());
+//        return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+//    }
+
+
+    @ExceptionHandler(value = UserNotFoundException.class)
+    public ResponseEntity<ErrorMessage> handleStudentNotFoundException1(UserNotFoundException ex) {
         ErrorMessage errorMessage = new ErrorMessage(HttpStatus.NOT_FOUND, ex.getMessage());
         return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
     }
 
-
-    @ExceptionHandler(value = UserNotFoundException.class)
-    public ResponseEntity<ErrorMessage> handleStudentNotFoundException(UserNotFoundException ex,
-                                                                       WebRequest request) {
-        ErrorMessage errorMessage = new ErrorMessage(HttpStatus.NOT_FOUND, ex.getMessage());
-        return  ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorMessage);
+    @ExceptionHandler(value = NameFoundException.class)
+    public ResponseEntity<ErrorMessage> handleStudentNotFoundException2(NameFoundException ex) {
+        ErrorMessage errorMessage = new ErrorMessage(HttpStatus.CONFLICT, ex.getMessage());
+        return  ResponseEntity.status(HttpStatus.CONFLICT).body(errorMessage);
     }
 
 }
