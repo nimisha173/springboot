@@ -24,12 +24,17 @@ public class Usercontrolller {
     }
     @GetMapping
     public ResponseEntity<List<User>> getuser() {
+
         return ResponseEntity.ok(userservice.getuser());
     }
     @GetMapping("/{id}")
     public User getid(@PathVariable Integer id)throws UserNotFoundException{
         return userservice.GetById(id).orElse(null);
     }
+//    @PutMapping("/{id}")
+//    public User update(@RequestBody User user){
+//        return userservice.update(user).orElse(null);
+//    }
 
 
 }

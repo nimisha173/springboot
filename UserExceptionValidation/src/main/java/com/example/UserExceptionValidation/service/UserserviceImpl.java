@@ -45,6 +45,18 @@ public class UserserviceImpl implements Userservice{
             return userrepo.findById(id);
         }
     }
+//    public Optional<Object> updateById(UserRequest user){
+//       User us=null;
+//       Optional<User>opdata=userrepo.findById(user.getId());
+//       if(opdata.isPresent()){
+//           us=opdata.get();
+//           us.setName(us.getName());
+//           userrepo.save(us);
+//       }else{
+//           return new User();
+//       }
+//        return user;
+//    }
 
 
 

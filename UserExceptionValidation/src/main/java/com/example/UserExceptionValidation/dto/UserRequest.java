@@ -14,10 +14,12 @@ public class UserRequest {
     private String name;
     @Email(message="email is in valid format")
     private String email;
+    @Pattern(regexp = "//d{10}")
     private String mobile;
     @Min(18)
     @Max(60)
     private int age;
+
 
 
 }

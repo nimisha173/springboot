@@ -11,7 +11,7 @@ import java.util.List;
 @RequestMapping("/pro/")
 public class ProductController {
     @Autowired
-    public ProService productService;
+    private ProService productService;
     @PostMapping("/post")
     public Product propost(@RequestBody Product pro){
 
@@ -24,6 +24,7 @@ public class ProductController {
     }
     @GetMapping("ge/{id}")
     public Product getproById(@PathVariable("id") Integer id){
+
         return productService.getproById(id);
     }
     @GetMapping("/{pname}")
